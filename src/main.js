@@ -1,3 +1,5 @@
+import data from "./db";
+
 const body = document.querySelector("body");
 const button = document.querySelector("button");
 const nameDisplay = document.querySelector("p");
