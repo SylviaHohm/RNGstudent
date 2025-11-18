@@ -1,13 +1,29 @@
-import "./style.css";
-
-import data from ".db";
-
-const button = document.createElement("button");
+const body = document.querySelector("body");
+const button = document.querySelector("button");
 const nameDisplay = document.querySelector("p");
+const darkModeRadio = document.getElementById("dark");
+const lightModeRadio = document.getElementById("light");
 
 button.addEventListener("click", () => {
   nameDisplay.textContent =
-    data[getRandomIntInclusive(0, data.length - 1)].name;
+    data[
+      getRandomIntInclusive(
+        0,
+
+        // Subtract 1 to account for zero-based indexing
+        data.length - 1,
+      )
+    ].name;
+});
+
+darkModeRadio.addEventListener("change", () => {
+  body.classList.remove("bg-gray-100");
+  body.classList.add("bg-gray-800", "text-white");
+});
+
+lightModeRadio.addEventListener("change", () => {
+  body.classList.remove("bg-gray-800");
+  body.classList.add("bg-gray-100", "text-white");
 });
 
 function getRandomIntInclusive(min, max) {
